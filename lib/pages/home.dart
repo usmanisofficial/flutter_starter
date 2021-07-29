@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/pages/drawer.dart';
+import 'package:flutter_starter/widgets/drawer.dart';
 
 //git readded
 class Home extends StatelessWidget {
@@ -13,6 +13,7 @@ class Home extends StatelessWidget {
         ),
         body: Center(
           child: Container(
+            color: Colors.white,
             child: Text('Center Widget'),
           ),
         ),
