@@ -63,11 +63,11 @@ class _HomeState extends State<Home> {
                     footer: Container(
                       child: Text(
                         item.price.toString(),
-                        style: TextStyle(color: Colors.white ),
+                        style: TextStyle(color: Colors.white),
                       ),
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                          color: Colors.deepPurple,
+                          color: Colors.black,
                           borderRadius: BorderRadius.vertical(
                             bottom: Radius.circular(10),
                           )),
