@@ -22,14 +22,18 @@ class _HomeState extends State<Home> {
   }
 
   loadData() async {
-    var catalogJson = await rootBundle.loadString("assets/files/catalog.json");
-    var decodedData = jsonDecode(catalogJson);
-    var itemsData = decodedData["products"]; 
+    //await Future.delayed(Duration(seconds: 2));
+    final catalogJson =
+        await rootBundle.loadString("assets/files/catalog.json");
+    final decodedData = jsonDecode(catalogJson);
+    var itemsData = decodedData["products"];
+    CatalogModel.items =
+        List.from(itemsData).map<Item>((item) => Item.fromMap(item)).toList();
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    final dummyList = List.generate(50, (index) => CatalogModel.items[0]);
     return Scaffold(
         appBar: AppBar(
           title: Text('Home'),
@@ -39,10 +43,10 @@ class _HomeState extends State<Home> {
           child: ListView.builder(
             itemBuilder: (context, index) {
               return ItemWidget(
-                item: dummyList[index],
+                item: CatalogModel.items[index],
               );
             },
-            itemCount: dummyList.length,
+            itemCount: CatalogModel.items.length,
           ),
         ),
         drawer: MyDrawer());

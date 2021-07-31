@@ -1,22 +1,48 @@
 class CatalogModel {
-  static final items = [
+  static  List<Item> items = [
     Item(
-        "Iphone X",
-        1,
-        "This is Iphone X",
-        999,
-        "https://www.freeiconspng.com/thumbs/iphone-x-pictures/apple-iphone-x-pictures-5.png",
-        "color")
+      id: 1,
+      name: "Iphone X",
+      desc: "This is Iphone X",
+      price: 999,
+      color: "color",
+      image:
+          "https://www.freeiconspng.com/thumbs/iphone-x-pictures/apple-iphone-x-pictures-5.png",
+    )
   ];
 }
 
 class Item {
-  final String name;
   final int id;
+  final String name;
   final String desc;
   final int price;
-  final String imageURL;
   final String color;
+  final String image;
 
-  Item(this.name, this.id, this.desc, this.price, this.imageURL, this.color);
+  Item({
+    required this.id,
+    required this.name,
+    required this.desc,
+    required this.price,
+    required this.color,
+    required this.image,
+  });
+  factory Item.fromMap(Map<String, dynamic> map) {
+    return Item(
+        id: map["id"],
+        name: map["name"],
+        desc: map["desc"],
+        price: map["price"],
+        color: map["color"],
+        image: map["image"]);
+  }
+  toMap() => {
+        "id": id,
+        "name": name,
+        "desc": desc,
+        "price": price,
+        "color": color,
+        "imageURL": image,
+      };
 }
