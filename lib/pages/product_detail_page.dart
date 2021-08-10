@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_starter/models/catalog.dart';
 import 'package:flutter_starter/widgets/theme,.dart';
@@ -11,7 +12,9 @@ class ProductDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+        ),
         backgroundColor: MyThemes.creamColor,
         bottomNavigationBar: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
@@ -19,12 +22,12 @@ class ProductDetailPage extends StatelessWidget {
             "\$${catalog.price}".text.red800.bold.xl4.make(),
             ElevatedButton(
               onPressed: () {},
-              child: "Buy".text.make(),
+              child: "Add to cart".text.make(),
               style: ButtonStyle(
                   backgroundColor:
                       MaterialStateProperty.all(MyThemes.darkBluishColor),
                   shape: MaterialStateProperty.all(StadiumBorder())),
-            ).wh(100, 50)
+            ).wh(120, 50)
           ],
         ).p16(),
         body: Column(
@@ -48,6 +51,11 @@ class ProductDetailPage extends StatelessWidget {
                         .bold
                         .make(),
                     catalog.desc.text.xl.caption(context).make(),
+                    "Clita labore gubergren erat amet takimata lorem, stet consetetur nonumy sed stet vero. Sadipscing stet no labore stet lorem duo et dolore takimata. Eirmod elitr diam et ea lorem vero invidunt vero. Lorem no gubergren dolore diam, consetetur sadipscing elitr sit justo justo sanctus no. Sadipscing est lorem dolor rebum."
+                        .text
+                        .caption(context)
+                        .make()
+                        .p16(),
                   ],
                 ).py64(),
               ),
