@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_starter/models/cart.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CartPage extends StatelessWidget {
@@ -29,12 +30,14 @@ class _CartTotal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _cart = CartModel();
+
     return SizedBox(
       height: 200,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          "\$9999".text.xl5.color(context.accentColor).make(),
+          "\$${_cart.totalPrice}".text.xl5.color(context.accentColor).make(),
           30.widthBox,
           ElevatedButton(
             onPressed: () {
@@ -61,6 +64,7 @@ class CartList extends StatefulWidget {
 }
 
 class _CartListState extends State<CartList> {
+  final _cart = CartModel();
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -70,9 +74,9 @@ class _CartListState extends State<CartList> {
           icon: Icon(CupertinoIcons.trash),
           onPressed: () {},
         ),
-        title: "Titles ".text.make(),
+        title: _cart.items[index].name.text.make(),
       ),
-      itemCount: 30,
+      itemCount: _cart.items.length,
     );
   }
 }

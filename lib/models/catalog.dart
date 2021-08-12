@@ -1,4 +1,10 @@
 class CatalogModel {
+  static final catModel = CatalogModel._internal();
+
+  CatalogModel._internal();
+
+  factory CatalogModel() => catModel;
+
   static List<Item> items = [];
   //Get Item by ID
   Item getbyID(int id) =>
